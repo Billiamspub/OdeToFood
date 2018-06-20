@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OdeToFood.Models;
 using OdeToFood.Services;
 using OdeToFood.ViewModels;
@@ -39,6 +40,7 @@ namespace OdeToFood.Controllers
             return View(model);
         }
         [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             return View();
