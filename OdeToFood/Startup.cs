@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Routing;
 using OdeToFood.Services;
 using OdeToFood.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace OdeToFood
 {
@@ -43,6 +44,9 @@ namespace OdeToFood
             {               
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseRewriter(new RewriteOptions()
+                                    .AddRedirectToHttpsPermanent());
 
             app.UseStaticFiles();
 
