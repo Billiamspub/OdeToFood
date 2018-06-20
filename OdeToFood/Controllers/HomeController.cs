@@ -6,6 +6,7 @@ using OdeToFood.ViewModels;
 
 namespace OdeToFood.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IRestaurantData _restaurantData;
@@ -17,7 +18,7 @@ namespace OdeToFood.Controllers
             _restaurantData = restaurantData;
             _greeter = greeter;
         }
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomeIndexViewModel();
@@ -40,7 +41,7 @@ namespace OdeToFood.Controllers
             return View(model);
         }
         [HttpGet]
-        [Authorize]
+
         public IActionResult Create()
         {
             return View();
