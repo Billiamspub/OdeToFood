@@ -13,7 +13,7 @@ namespace OdeToFood.Controllers
     {
         public IActionResult Login()
         {
-            var redirectUrl = Url.Page("/Index");
+            var redirectUrl = Url.Action("Index", "Home");
             return Challenge(
                 new AuthenticationProperties { RedirectUri = redirectUrl },
                 // challenge the user by logging in with OIDC server
